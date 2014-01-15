@@ -9,5 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Initial lab1 folder created with lab file.
+
 ## 0.0.0.0 [01-15-2014] #
 * Initial README, and .gitignore created.
