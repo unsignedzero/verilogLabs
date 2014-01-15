@@ -1,0 +1,59 @@
+# Created by David Tran (Unsignedzerp) by combining many other gitignores.
+# Version 1.6.1.0
+# Last Modified:12-17-2013
+
+# Vim cache files (end in ~)
+*.*~
+
+# Ignores gitmsg which I use to store and edit my commit messaegs.
+gitmsg
+
+# Mac OS X
+.DS_Store
+profile
+
+# Windows
+*.dat
+*.exe
+
+# Generated files
+log
+log/
+
+logs
+logs/
+
+out/
+out
+
+*.class
+*.log
+*.o
+*.out
+*.pyc
+*.tmp
+*.x
+
+# Latex
+*.aux
+
+# Python modules
+__pycache__/
+MANIFEST
+dist/
+build/
+
+# Backup files
+*.bku
+*.bku~
+*~.nib
+
+# Compressed Files
+*.7z
+*.gz
+*.rar
+*.tgz
+*.txz
+*.tar
+*.xz
+*.zip
