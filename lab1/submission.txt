@@ -1,0 +1,13 @@
+2.3 Procedure
+
+When A=B=C=0, D is 1 and E is 1.
+When A=B=C=1, D is 1 and E is 0.
+
+2.4 Submission Checklist
+
+Set G3 to an XOR gate
+If A=B=C=0, D is 1 and E is 1.
+If A=B=C=1, D is 1 and E is 0.
+
+3. The results are the same because in the cases that we set A,B,C
+the results the same. We will get different results if A and B is not the same as C.
