@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+## 0.1.0.0 [01-17-2014] #
+* Lab 1 file cleaned up.
 * Lab 1 completed.
 * Initial lab1 folder created with lab file.
 
