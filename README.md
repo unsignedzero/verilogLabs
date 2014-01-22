@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Lab 1 separated apart into two files.
+
 ## 0.1.0.0 [01-17-2014] #
 * Lab 1 file cleaned up.
 * Lab 1 completed.
