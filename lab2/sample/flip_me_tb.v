@@ -1,10 +1,10 @@
-// Lab 2
+// Class sample code
 // Created by David Tran
 // Last Modified 01-22-2014
 
 // extras
 `timescale 1 ms /1 us
-`include flip_me.v
+`include "flip_me.v"
 
 // Testbench Module
 

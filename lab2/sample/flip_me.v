@@ -1,4 +1,4 @@
-// Lab 2
+// Class sample code
 // Created by David Tran
 // Last Modified 01-22-2014
 
