@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Updated image to be only of A, B and F.
+
 ## 0.2.0.0 [01-23-2014] #
 * Lab 2 completed.
 * Lab 2 files are nor\_with\_nands.
