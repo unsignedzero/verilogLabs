@@ -9,6 +9,10 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+## 0.2.0.0 [01-23-2014] #
+* Lab 2 completed.
+* Lab 2 files are nor\_with\_nands.
+* Lab 2 files ypdated. Flip\_me is example and moved out.
 * Initial lab 2 file created.
 * Lab 1 separated apart into two files.
 

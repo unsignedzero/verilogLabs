@@ -1,6 +1,6 @@
 // Lab 2
 // Created by David Tran
-// Last Modified 01-22-2014
+// Last Modified 01-23-2014
 
 //Verilog HDL for "es210",
 
