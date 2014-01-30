@@ -14,7 +14,8 @@ def printSubsetToFile( subsetList, outputFile = 'bit_stream' ):
 
   subsetLength = len(subsetList[0])
 
-  fileList = [ open('%s%d' % (outputFile, i),'w') for i in range(subsetLength) ]
+  fileList = [ open('%s%d' % (outputFile, i),'w') for i
+    in range(subsetLength) ]
 
   for eachSubset in subsetList:
     for position, eachElement in enumerate(eachSubset):
@@ -22,7 +23,8 @@ def printSubsetToFile( subsetList, outputFile = 'bit_stream' ):
 
   [ filePtr.close() for filePtr in fileList ]
 
-subset = lambda tu: [[ int(((x)&(1<<y))>0) for y in range(tu) ] for x in range(1<<tu) ]
+subset = lambda tu: [[ int(((x)&(1<<y))>0) for y in range(tu) ]
+  for x in range(1<<tu) ]
 
 if __name__ == '__main__':
   if len(argv) >= 2 :
