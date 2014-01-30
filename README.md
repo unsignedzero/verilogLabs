@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Lab 3 Half Adder writes to file out.
 * Lab 3 Half Adder created.
 * Ensured bitgenerator.py has LOC 80 characters of less.
 * Added bit stream file used in lab 2.

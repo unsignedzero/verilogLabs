@@ -10,43 +10,49 @@
 
 module half_adder_tb (A, B);
 
-	output A, B;
-	reg A, B;
+  output A, B;
+  reg A, B;
 
-	wire S, C;
+  wire S, C;
 
-	reg t_A [5000:0];
-	reg t_B [5000:0];
-	reg t_clock;
-	reg [31:0] vectornum; //Values from 0 -> 2^31
+  reg t_A [5000:0];
+  reg t_B [5000:0];
+  reg t_clock;
+  reg [31:0] vectornum; //Values from 0 -> 2^31
 
-	half_adder I1 (A, B, S, C);
+        integer fp;
 
-	initial #1000 $finish;
+  half_adder I1 (A, B, S, C);
 
-	initial
-	begin
-		t_clock=0;
-		forever #5 t_clock=~t_clock;
-	end
+  //initial #1000 $finish;
 
-	initial
-	begin
-		$readmemb("./bit_str_a_0.txt",t_A);
-		$readmemb("./bit_str_a_1.txt",t_B);
-		vectornum=0; // Set test vector 0
-	end
+  initial
+  begin
+    t_clock=0;
+    forever #5 t_clock=~t_clock;
+  end
 
-	always @(negedge t_clock)
-	begin
-		A<=t_A[vectornum];
-		B<=t_B[vectornum];
-		vectornum<=vectornum+1;
-	end
+  initial
+  begin
+    $readmemb("./bit_str_a_0.txt",t_A);
+    $readmemb("./bit_str_a_1.txt",t_B);
+    vectornum=0; // Set test vector 0
+  end
 
-	initial
-	begin
-		$monitor("time=%0d", $time,, "A=%b B=%b S=%b C=%b", A, B, S, C);
-	end
+  always @(negedge t_clock)
+  begin
+    A<=t_A[vectornum];
+    B<=t_B[vectornum];
+    vectornum<=vectornum+1;
+  end
+
+  initial
+  begin
+    fp=$fopen("half_adder_tb.out");
+    $fmonitor(fp, "time=%0d", $time,, "A=%b B=%b S=%b C=%b", A, B, S, C);
+    #1000
+    $fclose(fp);
+    $finish;
+  end
 
 endmodule
