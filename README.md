@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Added bit stream file used in lab 2.
 * Bit generator built.
 * Updated image to be only of A, B and F.
 
