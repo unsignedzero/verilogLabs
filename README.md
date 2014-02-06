@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Outline for Lab 4 created.
+
 ## 0.3.0.0 [02-03-2014] #
 * Lab 3 completed.
 * Lab 3 Half Adder writes to file out.
