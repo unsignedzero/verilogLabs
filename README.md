@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Lab input files added.
 * Outline for Lab 4 created.
 
 ## 0.3.0.0 [02-03-2014] #
