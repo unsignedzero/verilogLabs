@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Updated lab 4 output.
+* Four Bit Adder Completed.
 * bitgenerator.py saves with .txt file extension.
 * Full adder completed.
 * Lab input files added.
