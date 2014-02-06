@@ -14,7 +14,7 @@ def printSubsetToFile( subsetList, outputFile = 'bit_stream' ):
 
   subsetLength = len(subsetList[0])
 
-  fileList = [ open('%s%d' % (outputFile, i),'w') for i
+  fileList = [ open('%s%d.txt' % (outputFile, i),'w') for i
     in range(subsetLength) ]
 
   for eachSubset in subsetList:
