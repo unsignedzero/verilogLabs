@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Full adder completed.
 * Lab input files added.
 * Outline for Lab 4 created.
 

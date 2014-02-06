@@ -6,7 +6,7 @@
 module full_adder(x, y, z, s, c);
 
   input x, y, z;
-  wire x, y, 1;
+  wire x, y, z;
 
   output s, c;
   wire s, c;

@@ -8,7 +8,7 @@
 
 // Testbench Module
 
-module full_adder_tb (A, B, D, S, C)
+module full_adder_tb (A, B, D);
 
   output A, B, D;
   reg A, B, D;
@@ -52,7 +52,8 @@ module full_adder_tb (A, B, D, S, C)
   initial
   begin
     fp=$fopen("full_adder_tb.out");
-    $fmonitor(fp, "time=%0d", $time,, "A=%b B=%b D=%b S=%b C=%b", A, B, D, S, C);
+    //$fmonitor(fp, "time=%0d", $time,, "A=%b B=%b D=%b S=%b C=%b", A, B, D, S, C);
+    $monitor("time=%0d", $time,, "A=%b B=%b D=%b S=%b C=%b", A, B, D, S, C);
     #1000
     $fclose(fp);
     $finish;
