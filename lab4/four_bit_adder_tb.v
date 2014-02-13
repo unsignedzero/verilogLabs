@@ -8,7 +8,7 @@
 
 // Testbench Module
 
-module four_bit_adder_tb (A0, A1, A2, A3, B0, B1, B2, B3, C0);
+module four_bit_adder_tb (A0, A1, A2, A3, B0, B1, B2, B3,
 
   output A0, A1, A2, A3, B0, B1, B2, B3, C0;
   reg A0, A1, A2, A3, B0, B1, B2, B3, C0;
@@ -81,6 +81,8 @@ module four_bit_adder_tb (A0, A1, A2, A3, B0, B1, B2, B3, C0);
       C0,
       D4, D3, D2, D1, D0,
       );
+    $dumpfile("fulladder.vcd");
+    $dumpvars;
     #1000
     //$fclose(fp);
     $finish;
