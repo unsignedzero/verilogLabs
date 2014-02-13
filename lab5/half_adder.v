@@ -1,6 +1,6 @@
-// Lab 4
+// Lab 6
 // Created by David Tran
-// Last Modified 02-06-2014
+// Last Modified 02-13-2014
 
 module half_adder(x, y, s, c);
 

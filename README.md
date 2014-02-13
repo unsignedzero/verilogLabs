@@ -9,7 +9,10 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Renamed as noted with specs of lab.
 * Lab 5 done.
+
+## 0.4.0.0 [02-13-2014] #
 * Bugfix: Erased full adder output.
 * Updated lab 4 output.
 * Four Bit Adder Completed.
