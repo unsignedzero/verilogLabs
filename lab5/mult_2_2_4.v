@@ -6,15 +6,12 @@
 
 // Testbench Module
 
-module mult_2_2_4(
-  input wire A0,
-  input wire A1,
-  input wire B0,
-  input wire B1,
-  output wire C0,
-  output wire C1,
-  output wire C2,
-  output wire C3);
+module mult_2_2_4(A0, A1, B0, B1, C0, C1, C2, C3);
+
+  input A0, A1, B0, B1;
+
+  output C0, C1, C2, C3;
+  wire C0, C1, C2, C3;
 
   wire W0, W1, W2, W3;
 

@@ -8,11 +8,12 @@
 
 // Testbench Module
 
-module four_bit_multiplier_tb (
-  output reg A0,
-  output reg A1,
-  output reg B0,
-  output reg B1);
+module four_bit_multiplier_tb (A0, A1, B0, B1);
+
+  output A0, A1, B0, B1;
+  reg A0, A1, B0, B1;
+
+  wire C0, C1, C2, C3;
 
   reg t_A0 [5000:0];
   reg t_A1 [5000:0];
@@ -51,22 +52,12 @@ module four_bit_multiplier_tb (
   initial
   begin
     fp=$fopen("mult_2_2_4.out");
-    $fmonitor(fp, "time=%03d", $time,,
-      "A=%b%b B=%b%b | C=%b%b%b%b",
-      A1, A0,
-      B1, B0,
-      C3, C2, C1, C0
-      );
+    $fmonitor(fp, "time=%0d", $time,, "A=%b%b B=%b%b | C=%b%b%b%b", A1, A0, B1, B0, C3, C2, C1, C0);
 
-    $monitor("time=%03d", $time,,
-      "A=%b%b B=%b%b | C=%b%b%b%b",
-      A1, A0,
-      B1, B0,
-      C3, C2, C1, C0
-      );
+    $monitor("time=%0d", $time,, "A=%b%b B=%b%b | C=%b%b%b%b", A1, A0, B1, B0, C3, C2, C1, C0);
 
-    $dumpfile("two_bit_multipler.vcd");
-    $dumpvars;
+    //$dumpfile("two_bit_multipler.vcd");
+    //$dumpvars;
     #1000
     $fclose(fp);
     $finish;
