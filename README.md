@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* 8x3Encoder created.
 * Cleaning repo.
 
 ## 0.5.0.0 [02-19-2014 #
