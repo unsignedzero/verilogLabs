@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* 4x2 decoder completed.
 * 8x3Encoder created.
 * Cleaning repo.
 
