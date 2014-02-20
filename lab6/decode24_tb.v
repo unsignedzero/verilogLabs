@@ -31,10 +31,11 @@ module decode24_tb (A, B);
 
   initial
     begin
-      //fp=$fopen("decode24.out");
-      //$fmonitor(fp, "time=%0d", $time,, "A=%b B=%b Y=%b", A, B, Y);
+      fp=$fopen("decode24.out");
+      $fmonitor(fp, "time=%0d", $time,, "A=%b B=%b Y=%b", A, B, Y);
       $monitor("time=%0d", $time,, "A=%b B=%b Y=%b", A, B, Y);
-      //$fclose(fp);
+        #400
+      $fclose(fp);
     end
 
   initial #400 $finish;

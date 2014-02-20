@@ -9,11 +9,13 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+## 0.6.0.0 [02-20-2014] #
+* Cadence tested.
 * 4x2 decoder completed.
 * 8x3Encoder created.
 * Cleaning repo.
 
-## 0.5.0.0 [02-19-2014 #
+## 0.5.0.0 [02-19-2014] #
 * Test compiled with Cadence.
 * Renamed as noted with specs of lab.
 * Lab 5 done.
