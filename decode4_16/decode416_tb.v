@@ -51,4 +51,3 @@ module decode416_tb (in);
   initial #400 $finish;
 
 endmodule
-

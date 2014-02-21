@@ -10,16 +10,10 @@ module decode24_enable (A, B, Y, enable);
   output [0:3] Y;
   wire [0:3] Y;
 
-  // Using or gate.
-  //assign Y[0] =  A |  B;
-  //assign Y[1] = !A |  B;
-  //assign Y[2] =  A | !B;
-  //assign Y[3] = !A | !B;
-
-  assign Y[0] = (~((~A)&(~B))|enable);
-  assign Y[1] = (~(( A)&(~B))|enable);
-  assign Y[2] = (~((~A)&( B))|enable);
-  assign Y[3] = (~(( A)&( B))|enable);
+  assign Y[0] = ~((~A)&(~B)) | enable;
+  assign Y[1] = ~(( A)&(~B)) | enable;
+  assign Y[2] = ~((~A)&( B)) | enable;
+  assign Y[3] = ~(( A)&( B)) | enable;
 
 endmodule
 
