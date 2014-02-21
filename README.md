@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Changing permissions for lab 6 files.
+
 ## 0.6.0.0 [02-20-2014] #
 * Cadence tested.
 * 4x2 decoder completed.
