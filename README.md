@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Created 4->16 decoder using 5 2->4 decoder.
 * Changing permissions for lab 6 files.
 
 ## 0.6.0.0 [02-20-2014] #
