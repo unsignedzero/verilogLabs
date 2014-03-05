@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+## 0.7.0.0 [03-03-2014] #
+* Added lab7 code.
 * Updated decoder output.
 * Cleaned encoder and added hw.
 * Created 4->16 decoder using 5 2->4 decoder.
