@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Updated decoder output.
 * Cleaned encoder and added hw.
 * Created 4->16 decoder using 5 2->4 decoder.
 * Changing permissions for lab 6 files.
