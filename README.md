@@ -9,6 +9,9 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+## 0.8.0.0 [03-14-2014] #
+* Lab 10 (8th Verilog Lab) completed with JK and T flip flop models.
+
 ## 0.7.0.0 [03-03-2014] #
 * Added lab7 code.
 * Updated decoder output.
