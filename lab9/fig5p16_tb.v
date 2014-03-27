@@ -12,6 +12,8 @@ module fig5p16_tb (t_y_out);
   //input t_reset ;
   reg t_reset ;
 
+  //reg state, next_state;
+
   fig5p16 M0 (t_y_out,t_x_in,t_clock,t_reset);
 
   initial #200 $finish;
@@ -38,5 +40,13 @@ module fig5p16_tb (t_y_out);
     #160 t_x_in = 0;
     #170 t_x_in = 1;
   join
+
+  initial
+    begin
+      //fp=$fopen("./fig5p16_tb.v.out");
+      $monitor("time=%0d",$time,,"X=%b Y=%b", t_x_in, t_y_out);
+      #200
+      $finish;
+    end
 
 endmodule
