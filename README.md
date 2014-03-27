@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Lab 11 (9th Verilog Lab) downloaded.
+
 ## 0.8.0.0 [03-14-2014] #
 * Lab 10 (8th Verilog Lab) completed with JK and T flip flop models.
 
