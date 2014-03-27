@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Reindented lab files.
 * Lab 11 (9th Verilog Lab) downloaded.
 
 ## 0.8.0.0 [03-14-2014] #
