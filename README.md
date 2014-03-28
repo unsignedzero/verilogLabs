@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+## 0.9.0.0 [03-27-2014] #
+* Added headers.
 * Cleaned up and ready.
 * Basic outline running.
 * Reindented lab files.

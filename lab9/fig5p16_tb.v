@@ -1,3 +1,7 @@
+// Lab 9 Sequential Circuit Lab
+// Edited by David Tran
+// Version 0.2.0.0
+
 `include "fig5p16.v"
 
 module fig5p16_tb (t_y_out);
@@ -12,6 +16,7 @@ module fig5p16_tb (t_y_out);
   fig5p16 M0 (t_y_out,t_x_in,t_clock,t_reset);
 
   initial #200 $finish;
+
   initial
     begin
       t_clock=0;

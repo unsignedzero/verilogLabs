@@ -1,3 +1,6 @@
+// Lab 9 Sequential Circuit Lab
+// Edited by David Tran
+// Version 0.2.0.0
 
 module fig5p16 (y_out, x_in, clock, reset);
 
