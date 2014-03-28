@@ -1,12 +1,11 @@
 
 module fig5p16 (y_out, x_in, clock, reset);
-//module fig5p16 (y_out, x_in, clock, reset, state, next_state);
 
   output y_out;
   reg y_out;
 
-  input x_in, clock, reset ;
-  wire x_in, clock, reset ;
+  input x_in, clock, reset;
+  wire x_in, clock, reset;
 
   reg[1:0] state;
   reg[1:0] next_state;

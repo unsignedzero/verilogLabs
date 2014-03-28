@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Cleaned up and ready.
 * Basic outline running.
 * Reindented lab files.
 * Lab 11 (9th Verilog Lab) downloaded.
