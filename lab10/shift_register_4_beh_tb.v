@@ -11,22 +11,8 @@
 //{module {shift_register_4_beh_tb}}
 module shift_register_4_beh_tb (clear);
 
-  //input s1 ;
-  //wire s1 ;
-  //input s0 ;
-  //wire s0 ;
-  //input msb_in ;
-  //wire msb_in ;
-  //input lsb_in ;
-  //wire lsb_in ;
-  //input clk ;
-  //wire clk ;
   input clear ;
   wire clear ;
-  //output [3:0] a_par ;
-  //wire [3:0] a_par ;
-  //input [3:0] i_par ;
-  //wire [3:0] i_par ;
 
   wire [3:0] a_par;
   reg [3:0] i_par;
@@ -36,8 +22,8 @@ module shift_register_4_beh_tb (clear);
   reg [0:0] t_i_par_1[10000:0];  //10000 rows should be more than sufficient
   reg [0:0] t_i_par_2[10000:0];  //10000 rows should be more than sufficient
   reg [0:0] t_i_par_3[10000:0];  //10000 rows should be more than sufficient
-  reg [0:0] t_msb_in[10000:0];  //10000 rows should be more than sufficient
-  reg [0:0] t_lsb_in[10000:0];  //10000 rows should be more than sufficient
+  reg [0:0] t_msb_in[10000:0];   //10000 rows should be more than sufficient
+  reg [0:0] t_lsb_in[10000:0];   //10000 rows should be more than sufficient
   reg t_clock,s0,s1;
   reg [31:0] vectornum;
 
@@ -67,8 +53,6 @@ module shift_register_4_beh_tb (clear);
 
   initial
     begin
-      //$readmemb("C:\Users\ouj\Documents\Sonoma\tunnel\basys2\es210\gate2\src\1b_str.txt",testvector);
-      //$readmemb("C:/\Users/\ouj/\Documents/\Sonoma/\tunnel/\basys2/\es210/\gate2/\src/\b_str.txt",testvector);
 
       $readmemb("bit_str_i_par_0.txt",t_i_par_0);
       $readmemb("bit_str_i_par_1.txt",t_i_par_1);
@@ -94,5 +78,12 @@ module shift_register_4_beh_tb (clear);
     end
 
   shift_register_4_beh M0 (a_par, i_par, s1, s0, msb_in, lsb_in, t_clock, clear);
+
+  initial
+    begin
+      $monitor("time=%05d",$time,,"| CurState:%04b Input:%b|%04b|%b S:%b%b Clear:%b", a_par, msb_in, i_par, lsb_in, s1, s0, clear);
+      #20000
+      $finish;
+    end
 
 endmodule
