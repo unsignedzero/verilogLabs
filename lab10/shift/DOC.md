@@ -11,12 +11,22 @@ outputData is a bit that will contain the output of the FIFO, if readMode is
 high. If the FIFO is overflowed, the topPtr will be in a bad position and the
 last value will be overwritten. Similarly the topPtr will be in a bad position
 if we are reading before the first position. 1'b0 will return when returning
-"unknown" values but the topPtr will have a non-zero value.
+"unknown" values but the topPtr will have a non-zero value. This acts much like
+a circular buffer with the same read/write pointers position and no notion
+of full or empty.
 
 The last two are the clock and reset respectively. Both trigger the FIFO
 on the positive edge.
 
+The FIFO is designed to hold at most 8 different bits. Any bit added will
+override the last bit.
+
 ## Test ##
 
+Case I:
 The test bench resets the FIFO and then fills it completely and empties it
-after.
+after. This can executed by compiling and running the test bench. If an equal amount
+of writes and reads returns the correct value a "Pass" message is outputted.
+
+This tests the read and write features under normal circumstances.
+

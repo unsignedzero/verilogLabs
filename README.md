@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Tested and documented finished.
 * Design outline of shift-register completed. Creating test documentation.
 * Test bench and code of shift-register completed.
 * FIFO project started.
