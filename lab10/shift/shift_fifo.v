@@ -1,11 +1,15 @@
-/* An 8 clock of latency shift-register FIFO.
+/* An 8 clock of latency shift-register FIFO. (8bit queue)
+ *
+ * This really is an 8 bit circular array should the pointer fall off on
+ * either end, from reading or writing too much with the same read/write
+ * pointer location.
  *
  * Created by David Tran
  */
 
 module shift_fifo (
-    readMode,  // Specifies if we want to read
-    writeMode, // Specifies if we want to write
+    readMode,  // Specifies if we want to read from the FIFO
+    writeMode, // Specifies if we want to write form the FIFO
     inputBit,  // The input bit to write to the shift-register
     outputBit, // The output bit to read from the shift-register
     clk,       // Clock input
@@ -27,11 +31,11 @@ module shift_fifo (
       curData <= 8'h00;
     end else begin
       if (readMode) begin
-        {curData, outputBit} <= {1'b0, curData}; // Read values
-        topPtr <= topPtr - 1;                     // Change value
+        {curData, outputBit} <= {1'b0, curData}; // Read in bit
+        topPtr <= topPtr - 1;                    // Change pointer location
       end else if (writeMode) begin
-        curData[topPtr] <= inputBit; //Write in bit
-        topPtr <= topPtr + 1;         // Change value
+        curData[topPtr] <= inputBit; // Write in bit
+        topPtr <= topPtr + 1;        // Change pointer location
       end
     end
 

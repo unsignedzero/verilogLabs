@@ -1,13 +1,16 @@
 /* The test bench for an 8 bit shift-register FIFO.
  *
+ * Case I:
+ * Tests the FIFO by writing eight 1s and reading them back.
+ *
  * Created by David Tran
  */
 
 `include "shift_fifo.v"
 
 module shift_fifo_tb (
-    readMode,  // Specifies if we want to read
-    writeMode, // Specifies if we want to write
+    readMode,  // Specifies if we want to read to the FIFO
+    writeMode, // Specifies if we want to write to the FIFO
     inputData  // The input bits to write to the shift-register
   );
 
@@ -29,7 +32,7 @@ module shift_fifo_tb (
   initial
   begin
     forever begin
-      @(posedge clk);
+      @(posedge clk); // Only output on positive edge
         $display("time=%04d RW=%b%b IO=%b%b clk=%b", $time,
             readMode, writeMode, inputData, outputData, clk);
     end
@@ -37,6 +40,7 @@ module shift_fifo_tb (
 
   initial
   begin
+    // Test Case I: Write to full and empty
     readMode = 0;
     writeMode = 0;
     inputData = 0;
@@ -50,7 +54,7 @@ module shift_fifo_tb (
     end else begin
       $display("Fail");
     end
-    #10 $finish;
+    $finish;
   end
 
 endmodule
