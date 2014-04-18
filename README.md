@@ -12,6 +12,11 @@ Created by unsignedzero and started on 01-15-2014
 ## 0.10.0.0 [04-17-2014] #
 * Print output working.
 * Working simple code base.
+* Added more documentation to code.
+* Tested and documented finished.
+* Design outline of shift-register completed. Creating test documentation.
+* Test bench and code of shift-register completed.
+* FIFO project started.
 
 ## 0.9.0.0 [03-27-2014] #
 * Added headers.
