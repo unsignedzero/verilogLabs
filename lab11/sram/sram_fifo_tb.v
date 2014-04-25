@@ -50,14 +50,14 @@ module sram_fifo_tb (
     rst = 1;
     readMode = 0;
     writeMode = 0;
-    #5 rst = 0;
-    #5 inputPacket = {bits{1'b1}}; writeMode = 1;
-    #80 writeMode = 0; readMode = 1; inputPacket = 0'h00;
-    #80 readMode = 0;
+    #10 rst = 0;
+    #10 inputPacket = {bits{1'b1}}; writeMode = 1;
+    #20 writeMode = 0; readMode = 1; inputPacket = 0'h00;
+    #20 readMode = 0;
     if (outputPacket === {bits{1'b1}}) begin
       $display("Pass");
     end else begin
-       $display("Fail");
+      $display("Fail");
     end
     $finish;
   end
