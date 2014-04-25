@@ -4,6 +4,7 @@
  * Tests the FIFO by writing eight 1s and reading them back.
  *
  * Created by David Tran
+ * Last Modified: 04-24-2014
  */
 
 `include "shift_fifo.v"
@@ -11,7 +12,7 @@
 module shift_fifo_tb (
     readMode,  // Specifies if we want to read to the FIFO
     writeMode, // Specifies if we want to write to the FIFO
-    inputData  // The input bits to write to the shift-register
+    inputData  // The input bit to write to the shift-register
   );
 
   output readMode, writeMode, inputData;
@@ -20,9 +21,8 @@ module shift_fifo_tb (
   wire outputData;
   reg clk, rst;
 
-  shift_fifo fifoInstance (readMode, writeMode, inputData,
-      outputData, clk, rst);
-
+  shift_fifo fifoInstance (readMode, writeMode,
+                           inputData, outputData, clk, rst);
   initial
   begin
     clk=0;
@@ -40,7 +40,7 @@ module shift_fifo_tb (
 
   initial
   begin
-    // Test Case I: Write to full and empty
+    // Test Case I: Write to capacity and empty out
     readMode = 0;
     writeMode = 0;
     inputData = 0;

@@ -9,6 +9,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Shift-register documentation completed.
+
 ## 0.10.0.0 [04-17-2014] #
 * Print output working.
 * Working simple code base.
