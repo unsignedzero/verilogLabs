@@ -1,9 +1,9 @@
 /* SRAM Test Bench
  *
  * Case I:
- * Tests the FIFO by writing eight 1s and reading them back.
+ * Tests the FIFO by writing eight 8'hFF and reading them back.
  *
- * Created By: david Tran
+ * Created By: David Tran
  * Last Modified: 04-24-2014
  */
 
@@ -52,8 +52,8 @@ module sram_fifo_tb (
     writeMode = 0;
     #10 rst = 0;
     #10 inputPacket = {bits{1'b1}}; writeMode = 1;
-    #20 writeMode = 0; readMode = 1; inputPacket = 0'h00;
-    #20 readMode = 0;
+    #80 writeMode = 0; readMode = 1; inputPacket = 0'h00;
+    #80 readMode = 0;
     if (outputPacket === {bits{1'b1}}) begin
       $display("Pass");
     end else begin

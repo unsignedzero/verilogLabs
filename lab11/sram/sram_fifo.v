@@ -5,7 +5,7 @@
  * reduce the data path. This means that one can read old data if one
  * falls off or writes over previous data if falling off there.
  *
- * Created By: david Tran
+ * Created By: David Tran
  * Last Modified: 04-24-2014
  */
 
@@ -45,7 +45,7 @@ module SRAM_fifo(
              .clk(clk)
   );
 
-  always @(posedge clk or posedge rst)
+  always @(posedge rst)
     if (rst) begin
       readPtr <= 3'h0;
       writePtr <= 3'h0;
@@ -54,11 +54,11 @@ module SRAM_fifo(
 
   always @(readMode or writeMode)
     if (readMode) begin
-      address <= readPtr;
-      readPtr <= readPtr + 1;
+      address = readPtr;
+      readPtr = readPtr + 1;
     end else if (writeMode) begin
-      address <= writePtr;
-      writePtr <= writePtr + 1;
+      address = writePtr;
+      writePtr = writePtr + 1;
     end
 
 endmodule
