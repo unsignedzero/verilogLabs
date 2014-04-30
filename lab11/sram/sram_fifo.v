@@ -45,17 +45,17 @@ module SRAM_fifo(
              .clk(clk)
   );
 
-  always @(negedge clk or posedge rst)
+  always @(posedge clk or posedge rst)
     if (rst) begin
       readPtr <= 3'h0;
       writePtr <= 3'h0;
       address <= 3'h0;
     end else begin
       if (readMode) begin
-        address = readPtr;
+        address <= readPtr;
         readPtr <= readPtr + 1;
       end else if (writeMode) begin
-        address = writePtr;
+        address <= writePtr;
         writePtr <= writePtr + 1;
       end
     end

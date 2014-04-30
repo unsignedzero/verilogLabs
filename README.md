@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Original Sram build, broken.
 * Sram FIFO working.
 * Shift-register documentation completed.
 

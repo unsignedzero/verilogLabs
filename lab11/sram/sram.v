@@ -32,7 +32,7 @@ module SRAM(read,    // Specifies if we want to read from the FIFO
 
   reg [bits-1:0] memArray [ad_length-1:0];
 
-  always @(negedge clk) begin
+  always @(posedge clk) begin
     if(write)
       memArray[address] <= dataIn;
     if(read)
