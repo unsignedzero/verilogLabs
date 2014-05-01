@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Fixed one clock cycle by adding nextReg.
 * Original Sram build, broken.
 * Sram FIFO working.
 * Shift-register documentation completed.

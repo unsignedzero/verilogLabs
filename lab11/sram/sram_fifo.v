@@ -35,6 +35,7 @@ module SRAM_fifo(
   reg [2:0] readPtr;   // This is the current read pointer of the queue.
   reg [2:0] writePtr;  // This is the current write pointer of the queue.
   reg [2:0] address;   // This will be the address used to access the SRAM
+  reg [2:0] nextReadPtr, nextWritePtr;
 
 
   SRAM sram (.read(readMode),
@@ -50,15 +51,22 @@ module SRAM_fifo(
       readPtr <= 3'h0;
       writePtr <= 3'h0;
       address <= 3'h0;
+      nextReadPtr <= 3'h0;
+      nextWritePtr <= 3'h0;
     end else begin
+      readPtr <= nextReadPtr;
+      writePtr <= nextWritePtr;
       if (readMode) begin
-        address <= readPtr;
-        readPtr <= readPtr + 1;
+        address <= nextReadPtr;
       end else if (writeMode) begin
-        address <= writePtr;
-        writePtr <= writePtr + 1;
+        address <= nextWritePtr;
       end
     end
+
+  always @(readPtr or writePtr or readMode or writeMode) begin
+    nextReadPtr = readMode ? readPtr + 1: readPtr;
+    nextWritePtr = writeMode ? writePtr + 1: writePtr;
+  end
 
 endmodule
 
