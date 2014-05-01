@@ -1,10 +1,10 @@
 /* SRAM Test Bench
  *
  * Case I:
- * Tests the FIFO by writing eight 1s and reading them back.
+ * Tests the FIFO by writing the FF byte and reading them back.
  *
- * Created By: david Tran
- * Last Modified: 04-24-2014
+ * Created By: David Tran
+ * Last Modified: 05-01-2014
  */
 
 `include "sram_fifo.v"
@@ -19,10 +19,10 @@ module sram_fifo_tb (
 
   output readMode, writeMode;
   reg readMode, writeMode;
+  reg readModeQ;
 
   output [bits-1:0] inputPacket;
   reg [bits-1:0] inputPacket;
-
 
   reg clk, rst;
   wire [bits-1:0] outputPacket;
@@ -39,8 +39,11 @@ module sram_fifo_tb (
   begin
     forever begin
       @(posedge clk); // Only output on positive edge
+        begin
         $display("time=%04d RW=%b%b I=%h O=%h clk=%b", $time,
-            readMode, writeMode, inputPacket, outputPacket, clk);
+            readModeQ, writeMode, inputPacket, outputPacket, clk);
+        readModeQ = readMode;
+        end
     end
   end
 
@@ -49,15 +52,16 @@ module sram_fifo_tb (
     // Test Case I: Write to capacity and empty
     rst = 1;
     readMode = 0;
+    readModeQ = 0;
     writeMode = 0;
     #5 rst = 0;
     #5 inputPacket = {bits{1'b1}}; writeMode = 1;
-    #80 writeMode = 0; readMode = 1; inputPacket = 0'h00;
-    #100 readMode = 0;
+    #80 writeMode = 0; readMode = 1; inputPacket = {bits{1'b0}};
+    #90 readMode = 0;
     if (outputPacket === {bits{1'b1}}) begin
       $display("Pass");
     end else begin
-       $display("Fail");
+      $display("Fail");
     end
     $finish;
   end

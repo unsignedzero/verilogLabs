@@ -2,11 +2,11 @@
  *
  * A "wrapper" around the SRAM, converting it to a FIFO. Note that this is a
  * "dump" FIFO that does not CHECK if it is full or empty before reading, to
- * reduce the data path. This means that one can read old data if one
- * falls off or writes over previous data if falling off there.
+ * reduce logic on the data path. This means that one can read old data if one
+ * falls off or writes over previous data if landing on there.
  *
- * Created By: david Tran
- * Last Modified: 04-24-2014
+ * Created By: David Tran
+ * Last Modified: 05-01-2014
  */
 
 `include "sram.v"
@@ -26,8 +26,12 @@ module SRAM_fifo(
 
   input readMode, writeMode, clk, rst;
 
+  reg readModeQ, writeModeQ;
+
   input [bits-1:0] inputPacket;
   wire [bits-1:0] inputPacket;
+
+  reg [bits-1:0] inputPacketQ;
 
   output [bits-1:0] outputPacket;
   wire [bits-1:0] outputPacket;
@@ -35,13 +39,13 @@ module SRAM_fifo(
   reg [2:0] readPtr;   // This is the current read pointer of the queue.
   reg [2:0] writePtr;  // This is the current write pointer of the queue.
   reg [2:0] address;   // This will be the address used to access the SRAM
-  reg [2:0] nextReadPtr, nextWritePtr;
+  reg [2:0] nextReadPtr, nextWritePtr; // Sets the next pointer, to be used in the address.
 
 
-  SRAM sram (.read(readMode),
-             .write(writeMode),
+  SRAM sram (.read(readModeQ),
+             .write(writeModeQ),
              .address(address),
-             .dataIn(inputPacket),
+             .dataIn(inputPacketQ),
              .dataOut(outputPacket),
              .clk(clk)
   );
@@ -51,21 +55,31 @@ module SRAM_fifo(
       readPtr <= 3'h0;
       writePtr <= 3'h0;
       address <= 3'h0;
+      inputPacketQ <= {bits{1'b0}};
       nextReadPtr <= 3'h0;
       nextWritePtr <= 3'h0;
     end else begin
-      readPtr <= nextReadPtr;
-      writePtr <= nextWritePtr;
-      if (readMode) begin
+
+      // Stores the next value as current for the next iteration.
+      readPtr = nextReadPtr;
+      writePtr = nextWritePtr;
+
+      if (readModeQ) begin
         address <= nextReadPtr;
-      end else if (writeMode) begin
+      end else if (writeModeQ) begin
         address <= nextWritePtr;
       end
+
+      // Updates the values in the queue.
+      readModeQ = readMode;
+      writeModeQ = writeMode;
+      inputPacketQ = inputPacket;
     end
 
+  // Moves the increment operation one cycle ahead.
   always @(readPtr or writePtr or readMode or writeMode) begin
-    nextReadPtr = readMode ? readPtr + 1: readPtr;
-    nextWritePtr = writeMode ? writePtr + 1: writePtr;
+    nextReadPtr <= readMode ? readPtr + 1: readPtr;
+    nextWritePtr <= writeMode ? writePtr + 1: writePtr;
   end
 
 endmodule
