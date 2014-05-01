@@ -12,7 +12,7 @@
 module sram_fifo_tb (
     readMode,   // Specifies if we want to read to the FIFO
     writeMode,  // Specifies if we want to write to the FIFO
-    inputPacket
+    inputPacket // The input packet
   );
 
   parameter bits = 8;
@@ -38,12 +38,11 @@ module sram_fifo_tb (
   initial
   begin
     forever begin
-      @(posedge clk); // Only output on positive edge
-        begin
+      @(posedge clk); begin // Only output on positive edge
         $display("time=%04d RW=%b%b I=%h O=%h clk=%b", $time,
             readModeQ, writeMode, inputPacket, outputPacket, clk);
         readModeQ = readMode;
-        end
+      end
     end
   end
 
