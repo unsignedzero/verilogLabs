@@ -9,6 +9,7 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Cross clock module created.
 * Added comments.
 * Fixed the clock cycle on the test bench side. Updating comments.
 * Fixed one clock cycle by adding nextReg.
