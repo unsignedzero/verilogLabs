@@ -5,7 +5,8 @@
  * return zero.
  *
  * Created by David Tran
- * Last Modified: 04-24-2014
+ * Version 0.1.0.0
+ * Last Modified:04-24-2014
  */
 
 module shift_fifo (

@@ -1,7 +1,7 @@
 # ES 210 Lab Spring 2014 #
 
 Contained is a collection of labs done by David Tran (unsignedzero) in Verilog
-for Dr. Ou's ES 210 class at Sonoma State University.
+for Dr. Ou's ES 210 class of 2014 at Sonoma State University.
 
 Created by unsignedzero and started on 01-15-2014
 
@@ -9,6 +9,10 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+## 0.11.0.0 [05-03-2014] #
+* Final lab submitted.
+* Fixed header block for all FIFOs so they are consistent.
+* Crossclock FIFO updated.
 * Cross clock module created.
 * Added comments.
 * Fixed the clock cycle on the test bench side. Updating comments.

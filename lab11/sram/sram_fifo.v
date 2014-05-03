@@ -5,8 +5,9 @@
  * reduce logic on the data path. This means that one can read old data if one
  * falls off or writes over previous data if landing on there.
  *
- * Created By: David Tran
- * Last Modified: 05-01-2014
+ * Created By David Tran
+ * Version 0.1.0.0
+ * Last Modified:05-01-2014
  */
 
 `include "sram.v"

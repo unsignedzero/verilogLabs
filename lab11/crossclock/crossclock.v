@@ -1,8 +1,12 @@
-/* Cross Clock Module Untested
+/* Cross Clock Module Tested and check
  *
- * Version 0.0.0.0
- * Last Modified: 05-02-2014
+ * Creates a FIFO that sits between two clock domains. Read and write are
+ * both asynconous and can occur at the same time. The FIFO does check if
+ * it is full/empty before writing/reading.
+ *
  * Created by David Tran
+ * Version 0.1.0.0
+ * Last Modified:05-03-2014
  */
 
 module crossclock(wrEnable,
@@ -13,8 +17,8 @@ module crossclock(wrEnable,
   rst);
 
   parameter bits = 8;
-  parameter ad_length = 3;
-  parameter length = 1<<3;
+  parameter ad_length = 2;
+  parameter length = 1<<ad_length;
 
   parameter [2:0] GRAY0 = 3'b000;
   parameter [2:0] GRAY1 = 3'b001;
@@ -43,7 +47,7 @@ module crossclock(wrEnable,
 
   reg [ad_length-1:0] wrPtrA, rdPtrA, wrPtrB, rdPtrB;
 
-  reg [bits-1:0] FIFO [ad_length-1:0];
+  reg [bits-1:0] FIFO [length-1:0];
 
   always @(posedge clkA or negedge rstA)
     if(rstA)
@@ -73,6 +77,7 @@ module crossclock(wrEnable,
     if (wrEnable) begin
       FIFO[wrPtrA] <= inputData;
     end
+    rdPtrAQ <= rdPtrB;
     rdPtrAQQ <= rdPtrAQ;
   end
 
@@ -83,7 +88,7 @@ module crossclock(wrEnable,
 
   // Dual Rank blocks
   always @(posedge clkA or negedge rst)
-    if(!rst) begin
+    if (!rst) begin
       rstQA <= 1'b0;
       rstA <= 1'b0;
     end else begin
@@ -92,7 +97,7 @@ module crossclock(wrEnable,
     end
 
   always @(posedge clkB or negedge rst)
-    if(!rst) begin
+    if (!rst) begin
       rstQB <= 1'b0;
       rstB <= 1'b0;
     end else begin
@@ -101,20 +106,22 @@ module crossclock(wrEnable,
     end
 
   // Reset Block
-  always @(negedge rst) begin
-    wrPtrA <= {ad_length{1'b0}};
-    wrPtrB <= {ad_length{1'b0}};
-    wrPtrBQ <= {ad_length{1'b0}};
-    wrPtrBQQ <= {ad_length{1'b0}};
+  always @(posedge clkA or posedge clkB or negedge rst) begin
+    if (rst) begin
+      wrPtrA <= {ad_length{1'b0}};
+      wrPtrB <= {ad_length{1'b0}};
+      wrPtrBQ <= {ad_length{1'b0}};
+      wrPtrBQQ <= {ad_length{1'b0}};
 
-    rdPtrB <= {ad_length{1'b0}};
-    rdPtrA <= {ad_length{1'b0}};
-    rdPtrAQ <= {ad_length{1'b0}};
-    rdPtrAQQ <= {ad_length{1'b0}};
+      rdPtrB <= {ad_length{1'b0}};
+      rdPtrA <= {ad_length{1'b0}};
+      rdPtrAQ <= {ad_length{1'b0}};
+      rdPtrAQQ <= {ad_length{1'b0}};
+    end
   end
 
 
-  assign empty = rdPtrB == wrPtrA;
+  assign empty = wrPtrBQQ == wrPtrA;
   assign outputData = FIFO[rdPtrB];
 
   // Gray Add Function

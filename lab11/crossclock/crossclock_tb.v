@@ -1,4 +1,11 @@
 /* Cross Clock Test Bench Module
+ *
+ * Case I:
+ * Tests the FIFO by writing the FF byte and reading them back.
+ *
+ * Created By David Tran
+ * Version 0.1.0.0
+ * Last Modified:05-03-2014
  */
 
 `include "crossclock.v"
@@ -10,8 +17,6 @@ module crossclock_tb(
 );
 
   parameter bits = 8;
-  parameter ad_length = 3;
-  parameter length = 1<<3;
 
   output readMode, writeMode;
   reg readMode, writeMode;
@@ -69,7 +74,7 @@ module crossclock_tb(
     #40
     #20 writeEnable = 1; writeMode = 1; inputPacket = {length{1'b1}};
     $display("Writing");
-    #80 writeEnable = 0; writeMode = 0; readMode = 1; inputPacket = {length{1'b0}};
+    #80 writeEnable = 0; writeMode = 0; readMode = 1; inputPacket = {bits{1'b0}};
     $display("Reading");
     #80 readMode = 0;
     if (outputPacket === {bits{1'b1}}) begin

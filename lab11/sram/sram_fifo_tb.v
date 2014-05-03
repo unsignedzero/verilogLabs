@@ -3,8 +3,9 @@
  * Case I:
  * Tests the FIFO by writing the FF byte and reading them back.
  *
- * Created By: David Tran
- * Last Modified: 05-01-2014
+ * Created By David Tran
+ * Version 0.1.0.0
+ * Last Modified:05-01-2014
  */
 
 `include "sram_fifo.v"
@@ -66,3 +67,4 @@ module sram_fifo_tb (
   end
 
 endmodule
+

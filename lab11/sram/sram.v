@@ -3,8 +3,9 @@
  * Implements an SRAM with each entry holding eight bits and eight entries
  * total.
  *
- * Created By: David Tran
- * Last Modified: 04-24-2014
+ * Created By David Tran
+ * Version 0.1.0.0
+ * Last Modified:05-01-2014
  */
 
 module SRAM(read,    // Specifies if we want to read from the FIFO
@@ -45,3 +46,4 @@ module SRAM(read,    // Specifies if we want to read from the FIFO
   end
 
 endmodule
+
