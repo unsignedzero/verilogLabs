@@ -12,6 +12,8 @@ Created by unsignedzero and started on 01-15-2014
 
 # Version/Changelog #
 
+* Organized directories and removed old files.
+
 ## 1.0.0.0 [05-28-2014] #
 * Code made public.
 
