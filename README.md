@@ -1,5 +1,7 @@
 # ES 210 Lab Spring 2014 #
 
+# DEPRECATED Branch Experiment #
+This branch exists for reference only and is converted into a tag for reference.
 Contained is a collection of labs done by David Tran (unsignedzero) in Verilog
 for Dr. Ou's ES 210 class at Sonoma State University.
 
