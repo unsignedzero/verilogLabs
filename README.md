@@ -1,13 +1,19 @@
 # ES 210 Lab Spring 2014 #
 
 Contained is a collection of labs done by David Tran (unsignedzero) in Verilog
-for Dr. Ou's ES 210 class of 2014 at Sonoma State University.
+for Dr. Ou's ES 210 class of 2014 at Sonoma State University. The goal of each
+lab is to solve the problem at hand in Verilog and sometimes building it
+with chips. This repo is created to show what David has learned in one
+semester.
 
 Created by unsignedzero and started on 01-15-2014
 
 # TO DO #
 
 # Version/Changelog #
+
+## 1.0.0.0 [05-28-2014] #
+* Code made public.
 
 ## 0.11.0.0 [05-03-2014] #
 * Final lab submitted.
